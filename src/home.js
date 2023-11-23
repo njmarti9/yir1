@@ -1,6 +1,8 @@
 import Slideshow from "./slideshow";
 import picgallery1 from "./picgallery1";
 import videogallery from "./videogallery";
+import topmoments from "./topmoments";
+import journey from "./journey";
 import videojs from "video.js";
 require('!style-loader!css-loader!video.js/dist/video-js.css')
 
@@ -21,6 +23,25 @@ const home = () => {
     const videogalleryDiv = videogallery();
 
     mainDiv.appendChild(videogalleryDiv);
+
+    const topMomentsDiv = topmoments();
+
+    mainDiv.appendChild(topMomentsDiv);
+
+    const journeyDiv = journey();
+
+    mainDiv.appendChild(journeyDiv);
+    
+    const exitButton = document.createElement('button');
+    exitButton.id = "exit_button";
+    exitButton.textContent = "X";
+    exitButton.classList.add("hidden");
+    exitButton.addEventListener("click", ()=>{
+        document.querySelector(".active").classList.remove("active");
+        exitButton.classList.add("hidden");
+    })
+
+    mainDiv.appendChild(exitButton);
 
     content.appendChild(mainDiv);
     

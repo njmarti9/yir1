@@ -8,6 +8,11 @@ const picgallery1 = () => {
 
     const galleryDiv = document.createElement('div');
     galleryDiv.id = "gallery";
+    galleryDiv.classList.add("visible_div");
+    galleryDiv.addEventListener("click", ()=>{
+        galleryDiv.classList.add("active");
+        document.querySelector(".hidden").classList.remove("hidden");
+    })
 
     const galleryTitle = document.createElement('h2');
     galleryTitle.textContent = "Gallery";

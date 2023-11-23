@@ -10,7 +10,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(64);
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(68);
 
 
 
@@ -34,13 +34,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _slideshow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony import */ var _picgallery1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var _videogallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(66);
-/* harmony import */ var video_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(21);
+/* harmony import */ var _videogallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var _topmoments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(69);
+/* harmony import */ var _journey__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(70);
+/* harmony import */ var video_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(25);
 
 
 
 
-__webpack_require__(5)
+
+
+__webpack_require__(9)
 
 const home = () => {
     let slideshow1 = new _slideshow__WEBPACK_IMPORTED_MODULE_0__["default"]();
@@ -60,13 +64,32 @@ const home = () => {
 
     mainDiv.appendChild(videogalleryDiv);
 
+    const topMomentsDiv = (0,_topmoments__WEBPACK_IMPORTED_MODULE_3__["default"])();
+
+    mainDiv.appendChild(topMomentsDiv);
+
+    const journeyDiv = (0,_journey__WEBPACK_IMPORTED_MODULE_4__["default"])();
+
+    mainDiv.appendChild(journeyDiv);
+    
+    const exitButton = document.createElement('button');
+    exitButton.id = "exit_button";
+    exitButton.textContent = "X";
+    exitButton.classList.add("hidden");
+    exitButton.addEventListener("click", ()=>{
+        document.querySelector(".active").classList.remove("active");
+        exitButton.classList.add("hidden");
+    })
+
+    mainDiv.appendChild(exitButton);
+
     content.appendChild(mainDiv);
     
     slideshow1.showSlides(0, "pic_slides");
 
     slideshow2.showSlides(0, "video_slides");
 
-    let player1 = (0,video_js__WEBPACK_IMPORTED_MODULE_3__["default"])(document.querySelector('.vid1'), {
+    let player1 = (0,video_js__WEBPACK_IMPORTED_MODULE_5__["default"])(document.querySelector('.vid1'), {
         controls: true,
         preload: 'auto',
         autoplay: false,
@@ -74,21 +97,21 @@ const home = () => {
     });
 
     
-    let player2 = (0,video_js__WEBPACK_IMPORTED_MODULE_3__["default"])(document.querySelector('.vid2'), {
+    let player2 = (0,video_js__WEBPACK_IMPORTED_MODULE_5__["default"])(document.querySelector('.vid2'), {
         controls: true,
         preload: 'auto',
         autoplay: false,
         fill: true
     });
 
-    let player3 = (0,video_js__WEBPACK_IMPORTED_MODULE_3__["default"])(document.querySelector('.vid3'), {
+    let player3 = (0,video_js__WEBPACK_IMPORTED_MODULE_5__["default"])(document.querySelector('.vid3'), {
         controls: true,
         preload: 'auto',
         autoplay: false,
         fill: true
     });
 
-    let player4 = (0,video_js__WEBPACK_IMPORTED_MODULE_3__["default"])(document.querySelector('.vid4'), {
+    let player4 = (0,video_js__WEBPACK_IMPORTED_MODULE_5__["default"])(document.querySelector('.vid4'), {
         controls: true,
         preload: 'auto',
         autoplay: false,
@@ -160,9 +183,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _slideshow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
-/* harmony import */ var _dist_images_gallery1_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
-/* harmony import */ var _dist_images_gallery2_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(18);
-/* harmony import */ var _dist_images_gallery3_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
+/* harmony import */ var _dist_images_gallery1_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _dist_images_gallery2_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var _dist_images_gallery3_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
 
 
 
@@ -173,6 +196,11 @@ const picgallery1 = () => {
 
     const galleryDiv = document.createElement('div');
     galleryDiv.id = "gallery";
+    galleryDiv.classList.add("visible_div");
+    galleryDiv.addEventListener("click", ()=>{
+        galleryDiv.classList.add("active");
+        document.querySelector(".hidden").classList.remove("hidden");
+    })
 
     const galleryTitle = document.createElement('h2');
     galleryTitle.textContent = "Gallery";
@@ -232,6 +260,27 @@ const picgallery1 = () => {
 
 /***/ }),
 /* 5 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "66c9b770c8bc4a041aa0.png";
+
+/***/ }),
+/* 6 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "a48c68363bb6a174f7ff.png";
+
+/***/ }),
+/* 7 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "e788b640e843fd3af650.png";
+
+/***/ }),
+/* 8 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -239,19 +288,132 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony import */ var _slideshow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _dist_images_walktocar_mp4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
+/* harmony import */ var _dist_images_sleepygirl_mp4__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(22);
+/* harmony import */ var _dist_images_gaminggirl_mp4__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(23);
+/* harmony import */ var _dist_images_drawinggirl_mp4__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(24);
+__webpack_require__(9)
+;
+
+
+
+
+
+const videogallery = () => {
+    let slideshow = new _slideshow__WEBPACK_IMPORTED_MODULE_0__["default"]();
+
+    const vidGalleryDiv = document.createElement('div');
+    vidGalleryDiv.id = "vid_gallery";
+    vidGalleryDiv.classList.add("visible_div");
+    vidGalleryDiv.addEventListener("click", ()=>{
+        vidGalleryDiv.classList.add("active");
+        document.querySelector(".hidden").classList.remove("hidden");
+    })
+    
+    const galleryTitle = document.createElement('h2');
+    galleryTitle.textContent = "Video Gallery";
+
+    vidGalleryDiv.appendChild(galleryTitle);
+
+    const vidDiv1 = document.createElement('div');
+    vidDiv1.classList.add("video_slides");
+    
+    const vid1 = document.createElement('video');
+    vid1.id = "vid1";
+    vid1.src = _dist_images_walktocar_mp4__WEBPACK_IMPORTED_MODULE_1__["default"];
+    vid1.classList.add("video-js");
+    vid1.classList.add("vid1");
+
+    vidDiv1.appendChild(vid1);
+    
+    vidGalleryDiv.appendChild(vidDiv1);
+
+    const vidDiv2 = document.createElement('div');
+    vidDiv2.classList.add("video_slides");
+
+    const vid2 = document.createElement('video');
+    vid2.id = "vid2";
+    vid2.src = _dist_images_sleepygirl_mp4__WEBPACK_IMPORTED_MODULE_2__["default"];
+    vid2.classList.add("video-js");
+    vid2.classList.add("vid2");
+
+    vidDiv2.appendChild(vid2);
+            
+    vidGalleryDiv.appendChild(vidDiv2);
+
+    const vidDiv3 = document.createElement('div');
+    vidDiv3.classList.add("video_slides");
+
+    const vid3 = document.createElement('video');
+    vid3.id = "vid3";
+    vid3.src = _dist_images_gaminggirl_mp4__WEBPACK_IMPORTED_MODULE_3__["default"];
+    vid3.classList.add("video-js");
+    vid3.classList.add("vid3");
+
+    vidDiv3.appendChild(vid3);
+            
+    vidGalleryDiv.appendChild(vidDiv3);
+
+    const vidDiv4 = document.createElement('div');
+    vidDiv4.classList.add("video_slides");
+
+    const vid4 = document.createElement('video');
+    vid4.id = "vid4";
+    vid4.src = _dist_images_drawinggirl_mp4__WEBPACK_IMPORTED_MODULE_4__["default"];
+    vid4.classList.add("video-js");
+    vid4.classList.add("vid4");
+
+    vidDiv4.appendChild(vid4);
+            
+    vidGalleryDiv.appendChild(vidDiv4);
+    
+    const buttonDiv = document.createElement('div');
+    buttonDiv.id = "button_div";
+    
+    const leftButton = document.createElement('button');
+    leftButton.id = "video_left_button";
+    leftButton.classList.add("slide_button");
+    leftButton.textContent = "<";
+    
+    buttonDiv.appendChild(leftButton);
+    
+    const rightButton = document.createElement('button');
+    rightButton.id = "video_right_button";
+    rightButton.classList.add("slide_button");
+    rightButton.textContent = ">";
+
+    buttonDiv.appendChild(rightButton);
+
+    vidGalleryDiv.appendChild(buttonDiv);
+
+    return vidGalleryDiv;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (videogallery);
+
+/***/ }),
+/* 9 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
+/* harmony import */ var _style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
 /* harmony import */ var _style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var _style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
 /* harmony import */ var _style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+/* harmony import */ var _style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(13);
 /* harmony import */ var _style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
+/* harmony import */ var _style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
 /* harmony import */ var _style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
+/* harmony import */ var _style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(15);
 /* harmony import */ var _style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _css_loader_dist_cjs_js_video_js_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(12);
+/* harmony import */ var _css_loader_dist_cjs_js_video_js_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(16);
 
       
       
@@ -282,7 +444,7 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 
 /***/ }),
-/* 6 */
+/* 10 */
 /***/ ((module) => {
 
 "use strict";
@@ -372,7 +534,7 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
-/* 7 */
+/* 11 */
 /***/ ((module) => {
 
 "use strict";
@@ -439,7 +601,7 @@ function domAPI(options) {
 module.exports = domAPI;
 
 /***/ }),
-/* 8 */
+/* 12 */
 /***/ ((module) => {
 
 "use strict";
@@ -479,7 +641,7 @@ function insertBySelector(insert, style) {
 module.exports = insertBySelector;
 
 /***/ }),
-/* 9 */
+/* 13 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -495,7 +657,7 @@ function setAttributesWithoutAttributes(styleElement) {
 module.exports = setAttributesWithoutAttributes;
 
 /***/ }),
-/* 10 */
+/* 14 */
 /***/ ((module) => {
 
 "use strict";
@@ -511,7 +673,7 @@ function insertStyleElement(options) {
 module.exports = insertStyleElement;
 
 /***/ }),
-/* 11 */
+/* 15 */
 /***/ ((module) => {
 
 "use strict";
@@ -531,7 +693,7 @@ function styleTagTransform(css, styleElement) {
 module.exports = styleTagTransform;
 
 /***/ }),
-/* 12 */
+/* 16 */
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -539,17 +701,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
 /* harmony import */ var _css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(15);
+/* harmony import */ var _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
 /* harmony import */ var _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(16), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(20), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
@@ -2504,7 +2666,7 @@ video::-webkit-media-text-track-display {
 
 
 /***/ }),
-/* 13 */
+/* 17 */
 /***/ ((module) => {
 
 "use strict";
@@ -2515,7 +2677,7 @@ module.exports = function (i) {
 };
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ ((module) => {
 
 "use strict";
@@ -2606,7 +2768,7 @@ module.exports = function (cssWithMappingToString) {
 };
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ ((module) => {
 
 "use strict";
@@ -2638,35 +2800,14 @@ module.exports = function (url, options) {
 };
 
 /***/ }),
-/* 16 */
+/* 20 */
 /***/ ((module) => {
 
 "use strict";
 module.exports = "data:application/font-woff;charset=utf-8;base64,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";
 
 /***/ }),
-/* 17 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "66c9b770c8bc4a041aa0.png";
-
-/***/ }),
-/* 18 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "a48c68363bb6a174f7ff.png";
-
-/***/ }),
-/* 19 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "e788b640e843fd3af650.png";
-
-/***/ }),
-/* 20 */
+/* 21 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2677,7 +2818,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "videos/walktocar.mp4");
 
 /***/ }),
-/* 21 */
+/* 22 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "videos/sleepygirl.mp4");
+
+/***/ }),
+/* 23 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "videos/gaminggirl.mp4");
+
+/***/ }),
+/* 24 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "videos/drawinggirl.mp4");
+
+/***/ }),
+/* 25 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2685,30 +2859,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ videojs)
 /* harmony export */ });
-/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
+/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
 /* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(global_window__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var global_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23);
+/* harmony import */ var global_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(27);
 /* harmony import */ var global_document__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(global_document__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var keycode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(25);
+/* harmony import */ var keycode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(29);
 /* harmony import */ var keycode__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(keycode__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var safe_json_parse_tuple__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(26);
+/* harmony import */ var safe_json_parse_tuple__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
 /* harmony import */ var safe_json_parse_tuple__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(safe_json_parse_tuple__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _videojs_xhr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(27);
+/* harmony import */ var _videojs_xhr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(31);
 /* harmony import */ var _videojs_xhr__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_videojs_xhr__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var videojs_vtt_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(31);
+/* harmony import */ var videojs_vtt_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(35);
 /* harmony import */ var videojs_vtt_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(videojs_vtt_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _videojs_vhs_utils_es_resolve_url_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(35);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(37);
-/* harmony import */ var m3u8_parser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(38);
-/* harmony import */ var _videojs_vhs_utils_es_codecs_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(41);
-/* harmony import */ var _videojs_vhs_utils_es_media_types_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(42);
-/* harmony import */ var _videojs_vhs_utils_es_byte_helpers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(43);
-/* harmony import */ var mpd_parser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(44);
-/* harmony import */ var mux_js_lib_tools_parse_sidx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(54);
+/* harmony import */ var _videojs_vhs_utils_es_resolve_url_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(39);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(41);
+/* harmony import */ var m3u8_parser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(42);
+/* harmony import */ var _videojs_vhs_utils_es_codecs_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(45);
+/* harmony import */ var _videojs_vhs_utils_es_media_types_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(46);
+/* harmony import */ var _videojs_vhs_utils_es_byte_helpers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(47);
+/* harmony import */ var mpd_parser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(48);
+/* harmony import */ var mux_js_lib_tools_parse_sidx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(58);
 /* harmony import */ var mux_js_lib_tools_parse_sidx__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(mux_js_lib_tools_parse_sidx__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _videojs_vhs_utils_es_id3_helpers__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(56);
-/* harmony import */ var _videojs_vhs_utils_es_containers__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(57);
-/* harmony import */ var mux_js_lib_utils_clock__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(63);
+/* harmony import */ var _videojs_vhs_utils_es_id3_helpers__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(60);
+/* harmony import */ var _videojs_vhs_utils_es_containers__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(61);
+/* harmony import */ var mux_js_lib_utils_clock__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(67);
 /* harmony import */ var mux_js_lib_utils_clock__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(mux_js_lib_utils_clock__WEBPACK_IMPORTED_MODULE_16__);
 /**
  * @license
@@ -53914,7 +54088,7 @@ if (!videojs.getPlugin || !videojs.getPlugin('reloadSourceOnError')) {
 
 
 /***/ }),
-/* 22 */
+/* 26 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var win;
@@ -53933,12 +54107,12 @@ module.exports = win;
 
 
 /***/ }),
-/* 23 */
+/* 27 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var topLevel = typeof __webpack_require__.g !== 'undefined' ? __webpack_require__.g :
     typeof window !== 'undefined' ? window : {}
-var minDoc = __webpack_require__(24);
+var minDoc = __webpack_require__(28);
 
 var doccy;
 
@@ -53956,13 +54130,13 @@ module.exports = doccy;
 
 
 /***/ }),
-/* 24 */
+/* 28 */
 /***/ (() => {
 
 /* (ignored) */
 
 /***/ }),
-/* 25 */
+/* 29 */
 /***/ ((module, exports) => {
 
 // Source: http://jsfiddle.net/vWx8V/
@@ -54143,7 +54317,7 @@ for (var alias in aliases) {
 
 
 /***/ }),
-/* 26 */
+/* 30 */
 /***/ ((module) => {
 
 module.exports = SafeParseTuple
@@ -54163,19 +54337,19 @@ function SafeParseTuple(obj, reviver) {
 
 
 /***/ }),
-/* 27 */
+/* 31 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var window = __webpack_require__(22);
+var window = __webpack_require__(26);
 
-var _extends = __webpack_require__(28);
+var _extends = __webpack_require__(32);
 
-var isFunction = __webpack_require__(29);
+var isFunction = __webpack_require__(33);
 
-createXHR.httpHandler = __webpack_require__(30);
+createXHR.httpHandler = __webpack_require__(34);
 /**
  * @license
  * slighly modified parse-headers 2.0.2 <https://github.com/kesla/parse-headers/>
@@ -54465,7 +54639,7 @@ function getXml(xhr) {
 function noop() {}
 
 /***/ }),
-/* 28 */
+/* 32 */
 /***/ ((module) => {
 
 function _extends() {
@@ -54485,7 +54659,7 @@ function _extends() {
 module.exports = _extends, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 29 */
+/* 33 */
 /***/ ((module) => {
 
 module.exports = isFunction
@@ -54509,13 +54683,13 @@ function isFunction (fn) {
 
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 
-var window = __webpack_require__(22);
+var window = __webpack_require__(26);
 
 var httpResponseHandler = function httpResponseHandler(callback, decodeResponseBody) {
   if (decodeResponseBody === void 0) {
@@ -54577,7 +54751,7 @@ function getCharset(contentTypeHeader) {
 module.exports = httpResponseHandler;
 
 /***/ }),
-/* 31 */
+/* 35 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -54601,12 +54775,12 @@ module.exports = httpResponseHandler;
 // forth between JSON. If we don't then it's not that big of a deal since we're
 // off browser.
 
-var window = __webpack_require__(22);
+var window = __webpack_require__(26);
 
 var vttjs = module.exports = {
-  WebVTT: __webpack_require__(32),
-  VTTCue: __webpack_require__(33),
-  VTTRegion: __webpack_require__(34)
+  WebVTT: __webpack_require__(36),
+  VTTCue: __webpack_require__(37),
+  VTTRegion: __webpack_require__(38)
 };
 
 window.vttjs = vttjs;
@@ -54633,7 +54807,7 @@ if (!window.VTTCue) {
 
 
 /***/ }),
-/* 32 */
+/* 36 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -54654,7 +54828,7 @@ if (!window.VTTCue) {
 
 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
-var document = __webpack_require__(23);
+var document = __webpack_require__(27);
 
 var _objCreate = Object.create || (function() {
   function F() {}
@@ -55990,7 +56164,7 @@ module.exports = WebVTT;
 
 
 /***/ }),
-/* 33 */
+/* 37 */
 /***/ ((module) => {
 
 /**
@@ -56282,7 +56456,7 @@ module.exports = VTTCue;
 
 
 /***/ }),
-/* 34 */
+/* 38 */
 /***/ ((module) => {
 
 /**
@@ -56423,7 +56597,7 @@ module.exports = VTTRegion;
 
 
 /***/ }),
-/* 35 */
+/* 39 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -56431,9 +56605,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var url_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(36);
+/* harmony import */ var url_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(40);
 /* harmony import */ var url_toolkit__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(url_toolkit__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(22);
+/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
 /* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(global_window__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -56484,7 +56658,7 @@ var resolveUrl = function resolveUrl(baseUrl, relativeUrl) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (resolveUrl);
 
 /***/ }),
-/* 36 */
+/* 40 */
 /***/ (function(module) {
 
 // see https://tools.ietf.org/html/rfc1808
@@ -56659,7 +56833,7 @@ var resolveUrl = function resolveUrl(baseUrl, relativeUrl) {
 
 
 /***/ }),
-/* 37 */
+/* 41 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -56683,7 +56857,7 @@ function _extends() {
 }
 
 /***/ }),
-/* 38 */
+/* 42 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -56693,9 +56867,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ParseStream: () => (/* binding */ ParseStream),
 /* harmony export */   Parser: () => (/* binding */ Parser)
 /* harmony export */ });
-/* harmony import */ var _videojs_vhs_utils_es_stream_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(39);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(37);
-/* harmony import */ var _videojs_vhs_utils_es_decode_b64_to_uint8_array_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(40);
+/* harmony import */ var _videojs_vhs_utils_es_stream_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(41);
+/* harmony import */ var _videojs_vhs_utils_es_decode_b64_to_uint8_array_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(44);
 /*! @name m3u8-parser @version 6.2.0 @license Apache-2.0 */
 
 
@@ -58331,7 +58505,7 @@ class Parser extends _videojs_vhs_utils_es_stream_js__WEBPACK_IMPORTED_MODULE_0_
 
 
 /***/ }),
-/* 39 */
+/* 43 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -58462,7 +58636,7 @@ var Stream = /*#__PURE__*/function () {
 
 
 /***/ }),
-/* 40 */
+/* 44 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -58470,7 +58644,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ decodeB64ToUint8Array)
 /* harmony export */ });
-/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
+/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
 /* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(global_window__WEBPACK_IMPORTED_MODULE_0__);
 
 
@@ -58490,7 +58664,7 @@ function decodeB64ToUint8Array(b64Text) {
 }
 
 /***/ }),
-/* 41 */
+/* 45 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -58510,7 +58684,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   translateLegacyCodec: () => (/* binding */ translateLegacyCodec),
 /* harmony export */   translateLegacyCodecs: () => (/* binding */ translateLegacyCodecs)
 /* harmony export */ });
-/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
+/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
 /* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(global_window__WEBPACK_IMPORTED_MODULE_0__);
 
 var regexs = {
@@ -58767,7 +58941,7 @@ var DEFAULT_AUDIO_CODEC = 'mp4a.40.2';
 var DEFAULT_VIDEO_CODEC = 'avc1.4d400d';
 
 /***/ }),
-/* 42 */
+/* 46 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -58813,7 +58987,7 @@ var simpleTypeFromSourceType = function simpleTypeFromSourceType(type) {
 };
 
 /***/ }),
-/* 43 */
+/* 47 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -58839,7 +59013,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   toHexString: () => (/* binding */ toHexString),
 /* harmony export */   toUint8: () => (/* binding */ toUint8)
 /* harmony export */ });
-/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
+/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
 /* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(global_window__WEBPACK_IMPORTED_MODULE_0__);
  // const log2 = Math.log2 ? Math.log2 : (x) => (Math.log(x) / Math.log(2));
 
@@ -59114,7 +59288,7 @@ var reverseBytes = function reverseBytes(src) {
 };
 
 /***/ }),
-/* 44 */
+/* 48 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -59130,12 +59304,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   toM3u8: () => (/* binding */ toM3u8),
 /* harmony export */   toPlaylists: () => (/* binding */ toPlaylists)
 /* harmony export */ });
-/* harmony import */ var _videojs_vhs_utils_es_resolve_url__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(45);
-/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(22);
+/* harmony import */ var _videojs_vhs_utils_es_resolve_url__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(49);
+/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
 /* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(global_window__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _videojs_vhs_utils_es_media_groups__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(46);
-/* harmony import */ var _videojs_vhs_utils_es_decode_b64_to_uint8_array__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(47);
-/* harmony import */ var _xmldom_xmldom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(48);
+/* harmony import */ var _videojs_vhs_utils_es_media_groups__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(50);
+/* harmony import */ var _videojs_vhs_utils_es_decode_b64_to_uint8_array__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(51);
+/* harmony import */ var _xmldom_xmldom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(52);
 /*! @name mpd-parser @version 1.2.2 @license Apache-2.0 */
 
 
@@ -61869,7 +62043,7 @@ const parseUTCTiming = manifestString => parseUTCTimingScheme(stringToMpdXml(man
 
 
 /***/ }),
-/* 45 */
+/* 49 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -61877,9 +62051,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var url_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(36);
+/* harmony import */ var url_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(40);
 /* harmony import */ var url_toolkit__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(url_toolkit__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(22);
+/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
 /* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(global_window__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -61930,7 +62104,7 @@ var resolveUrl = function resolveUrl(baseUrl, relativeUrl) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (resolveUrl);
 
 /***/ }),
-/* 46 */
+/* 50 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -61961,7 +62135,7 @@ var forEachMediaGroup = function forEachMediaGroup(master, groups, callback) {
 };
 
 /***/ }),
-/* 47 */
+/* 51 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -61969,7 +62143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ decodeB64ToUint8Array)
 /* harmony export */ });
-/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
+/* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
 /* harmony import */ var global_window__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(global_window__WEBPACK_IMPORTED_MODULE_0__);
 
 
@@ -61989,20 +62163,20 @@ function decodeB64ToUint8Array(b64Text) {
 }
 
 /***/ }),
-/* 48 */
+/* 52 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-var dom = __webpack_require__(49)
+var dom = __webpack_require__(53)
 exports.DOMImplementation = dom.DOMImplementation
 exports.XMLSerializer = dom.XMLSerializer
-exports.DOMParser = __webpack_require__(51).DOMParser
+exports.DOMParser = __webpack_require__(55).DOMParser
 
 
 /***/ }),
-/* 49 */
+/* 53 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-var conventions = __webpack_require__(50);
+var conventions = __webpack_require__(54);
 
 var find = conventions.find;
 var NAMESPACE = conventions.NAMESPACE;
@@ -63845,7 +64019,7 @@ try{
 
 
 /***/ }),
-/* 50 */
+/* 54 */
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -64055,13 +64229,13 @@ exports.NAMESPACE = NAMESPACE;
 
 
 /***/ }),
-/* 51 */
+/* 55 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-var conventions = __webpack_require__(50);
-var dom = __webpack_require__(49)
-var entities = __webpack_require__(52);
-var sax = __webpack_require__(53);
+var conventions = __webpack_require__(54);
+var dom = __webpack_require__(53)
+var entities = __webpack_require__(56);
+var sax = __webpack_require__(57);
 
 var DOMImplementation = dom.DOMImplementation;
 
@@ -64383,13 +64557,13 @@ exports.DOMParser = DOMParser;
 
 
 /***/ }),
-/* 52 */
+/* 56 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var freeze = (__webpack_require__(50).freeze);
+var freeze = (__webpack_require__(54).freeze);
 
 /**
  * The entities that are predefined in every XML document.
@@ -66556,10 +66730,10 @@ exports.entityMap = exports.HTML_ENTITIES;
 
 
 /***/ }),
-/* 53 */
+/* 57 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-var NAMESPACE = (__webpack_require__(50).NAMESPACE);
+var NAMESPACE = (__webpack_require__(54).NAMESPACE);
 
 //[4]   	NameStartChar	   ::=   	":" | [A-Z] | "_" | [a-z] | [#xC0-#xD6] | [#xD8-#xF6] | [#xF8-#x2FF] | [#x370-#x37D] | [#x37F-#x1FFF] | [#x200C-#x200D] | [#x2070-#x218F] | [#x2C00-#x2FEF] | [#x3001-#xD7FF] | [#xF900-#xFDCF] | [#xFDF0-#xFFFD] | [#x10000-#xEFFFF]
 //[4a]   	NameChar	   ::=   	NameStartChar | "-" | "." | [0-9] | #xB7 | [#x0300-#x036F] | [#x203F-#x2040]
@@ -67224,10 +67398,10 @@ exports.ParseError = ParseError;
 
 
 /***/ }),
-/* 54 */
+/* 58 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var getUint64 = (__webpack_require__(55).getUint64);
+var getUint64 = (__webpack_require__(59).getUint64);
 
 var parseSidx = function(data) {
   var view = new DataView(data.buffer, data.byteOffset, data.byteLength),
@@ -67276,7 +67450,7 @@ module.exports = parseSidx;
 
 
 /***/ }),
-/* 55 */
+/* 59 */
 /***/ ((module) => {
 
 var MAX_UINT32 = Math.pow(2, 32);
@@ -67305,7 +67479,7 @@ module.exports = {
 
 
 /***/ }),
-/* 56 */
+/* 60 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -67314,7 +67488,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getId3Offset: () => (/* binding */ getId3Offset),
 /* harmony export */   getId3Size: () => (/* binding */ getId3Size)
 /* harmony export */ });
-/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
+/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47);
 
 var ID3 = (0,_byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__.toUint8)([0x49, 0x44, 0x33]);
 var getId3Size = function getId3Size(bytes, offset) {
@@ -67354,7 +67528,7 @@ var getId3Offset = function getId3Offset(bytes, offset) {
 };
 
 /***/ }),
-/* 57 */
+/* 61 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -67364,11 +67538,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   isLikely: () => (/* binding */ isLikely),
 /* harmony export */   isLikelyFmp4MediaSegment: () => (/* binding */ isLikelyFmp4MediaSegment)
 /* harmony export */ });
-/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
-/* harmony import */ var _mp4_helpers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(58);
-/* harmony import */ var _ebml_helpers_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(61);
-/* harmony import */ var _id3_helpers_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(56);
-/* harmony import */ var _nal_helpers_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(62);
+/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47);
+/* harmony import */ var _mp4_helpers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(62);
+/* harmony import */ var _ebml_helpers_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(65);
+/* harmony import */ var _id3_helpers_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(60);
+/* harmony import */ var _nal_helpers_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(66);
 
 
 
@@ -67554,7 +67728,7 @@ var isLikelyFmp4MediaSegment = function isLikelyFmp4MediaSegment(bytes) {
 };
 
 /***/ }),
-/* 58 */
+/* 62 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -67568,9 +67742,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   parseMediaInfo: () => (/* binding */ parseMediaInfo),
 /* harmony export */   parseTracks: () => (/* binding */ parseTracks)
 /* harmony export */ });
-/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
-/* harmony import */ var _codec_helpers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59);
-/* harmony import */ var _opus_helpers_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(60);
+/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47);
+/* harmony import */ var _codec_helpers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(63);
+/* harmony import */ var _opus_helpers_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(64);
 
 
 
@@ -68126,7 +68300,7 @@ var parseMediaInfo = function parseMediaInfo(bytes) {
 };
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -68136,7 +68310,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getAvcCodec: () => (/* binding */ getAvcCodec),
 /* harmony export */   getHvcCodec: () => (/* binding */ getHvcCodec)
 /* harmony export */ });
-/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
+/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47);
  // https://aomediacodec.github.io/av1-isobmff/#av1codecconfigurationbox-syntax
 // https://developer.mozilla.org/en-US/docs/Web/Media/Formats/codecs_parameter#AV1
 
@@ -68235,7 +68409,7 @@ var getHvcCodec = function getHvcCodec(bytes) {
 };
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -68299,7 +68473,7 @@ var setOpusHead = function setOpusHead(config) {
 };
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -68311,8 +68485,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   parseData: () => (/* binding */ parseData),
 /* harmony export */   parseTracks: () => (/* binding */ parseTracks)
 /* harmony export */ });
-/* harmony import */ var _byte_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
-/* harmony import */ var _codec_helpers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59);
+/* harmony import */ var _byte_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47);
+/* harmony import */ var _codec_helpers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(63);
 
  // relevant specs for this parser:
 // https://matroska-org.github.io/libebml/specs.html
@@ -68812,7 +68986,7 @@ var parseData = function parseData(data, tracks) {
 };
 
 /***/ }),
-/* 62 */
+/* 66 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -68826,7 +69000,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   findH265Nal: () => (/* binding */ findH265Nal),
 /* harmony export */   findNal: () => (/* binding */ findNal)
 /* harmony export */ });
-/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
+/* harmony import */ var _byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47);
 
 var NAL_TYPE_ONE = (0,_byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__.toUint8)([0x00, 0x00, 0x00, 0x01]);
 var NAL_TYPE_TWO = (0,_byte_helpers_js__WEBPACK_IMPORTED_MODULE_0__.toUint8)([0x00, 0x00, 0x01]);
@@ -68941,7 +69115,7 @@ var findH265Nal = function findH265Nal(bytes, type, nalLimit) {
 };
 
 /***/ }),
-/* 63 */
+/* 67 */
 /***/ ((module) => {
 
 /**
@@ -69005,7 +69179,7 @@ module.exports = {
 
 
 /***/ }),
-/* 64 */
+/* 68 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -69013,8 +69187,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-
-
 const header = () => {
     const headerDiv = document.createElement('div');
     headerDiv.id = "header";
@@ -69032,7 +69204,7 @@ const header = () => {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (header);
 
 /***/ }),
-/* 65 */
+/* 69 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -69040,118 +69212,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "videos/sleepygirl.mp4");
-
-/***/ }),
-/* 66 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _slideshow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
-/* harmony import */ var _dist_images_walktocar_mp4__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20);
-/* harmony import */ var _dist_images_sleepygirl_mp4__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(65);
-/* harmony import */ var _dist_images_gaminggirl_mp4__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
-/* harmony import */ var _dist_images_drawinggirl_mp4__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(68);
-__webpack_require__(5)
-;
-
-
-
-
-
-const videogallery = () => {
-    let slideshow = new _slideshow__WEBPACK_IMPORTED_MODULE_0__["default"]();
-
-    const vidGalleryDiv = document.createElement('div');
-    vidGalleryDiv.id = "vid_gallery";
-
-    const galleryTitle = document.createElement('h2');
-    galleryTitle.textContent = "Video Gallery";
-
-    vidGalleryDiv.appendChild(galleryTitle);
-
-    const vidDiv1 = document.createElement('div');
-    vidDiv1.classList.add("video_slides");
+const topmoments = () => {
+    const topmomentsDiv = document.createElement('div');
+    topmomentsDiv.id = "top_moments_div";
+    topmomentsDiv.classList.add("visible_div");
+    topmomentsDiv.addEventListener("click", ()=>{
+        topmomentsDiv.classList.add("active");
+        document.querySelector(".hidden").classList.remove("hidden");
+    })
     
-    const vid1 = document.createElement('video');
-    vid1.id = "vid1";
-    vid1.src = _dist_images_walktocar_mp4__WEBPACK_IMPORTED_MODULE_1__["default"];
-    vid1.classList.add("video-js");
-    vid1.classList.add("vid1");
+    const topmomentsTitle = document.createElement('h2');
+    topmomentsTitle.textContent = "Top Moments";
 
-    vidDiv1.appendChild(vid1);
-    
-    vidGalleryDiv.appendChild(vidDiv1);
+    topmomentsDiv.appendChild(topmomentsTitle);
 
-    const vidDiv2 = document.createElement('div');
-    vidDiv2.classList.add("video_slides");
-
-    const vid2 = document.createElement('video');
-    vid2.id = "vid2";
-    vid2.src = _dist_images_sleepygirl_mp4__WEBPACK_IMPORTED_MODULE_2__["default"];
-    vid2.classList.add("video-js");
-    vid2.classList.add("vid2");
-
-    vidDiv2.appendChild(vid2);
-            
-    vidGalleryDiv.appendChild(vidDiv2);
-
-    const vidDiv3 = document.createElement('div');
-    vidDiv3.classList.add("video_slides");
-
-    const vid3 = document.createElement('video');
-    vid3.id = "vid3";
-    vid3.src = _dist_images_gaminggirl_mp4__WEBPACK_IMPORTED_MODULE_3__["default"];
-    vid3.classList.add("video-js");
-    vid3.classList.add("vid3");
-
-    vidDiv3.appendChild(vid3);
-            
-    vidGalleryDiv.appendChild(vidDiv3);
-
-    const vidDiv4 = document.createElement('div');
-    vidDiv4.classList.add("video_slides");
-
-    const vid4 = document.createElement('video');
-    vid4.id = "vid4";
-    vid4.src = _dist_images_drawinggirl_mp4__WEBPACK_IMPORTED_MODULE_4__["default"];
-    vid4.classList.add("video-js");
-    vid4.classList.add("vid4");
-
-    vidDiv4.appendChild(vid4);
-            
-    vidGalleryDiv.appendChild(vidDiv4);
-    
-    const buttonDiv = document.createElement('div');
-    buttonDiv.id = "button_div";
-    
-    const leftButton = document.createElement('button');
-    leftButton.id = "video_left_button";
-    leftButton.classList.add("slide_button");
-    leftButton.textContent = "<";
-    
-    buttonDiv.appendChild(leftButton);
-    
-    const rightButton = document.createElement('button');
-    rightButton.id = "video_right_button";
-    rightButton.classList.add("slide_button");
-    rightButton.textContent = ">";
-
-    buttonDiv.appendChild(rightButton);
-    
-    vidGalleryDiv.appendChild(buttonDiv);
-    
-    return vidGalleryDiv;
+    return topmomentsDiv;
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (videogallery);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (topmoments);
 
 /***/ }),
-/* 67 */
+/* 70 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -69159,18 +69240,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "videos/gaminggirl.mp4");
+const journey = () => {
+    const journeyDiv = document.createElement('div');
+    journeyDiv.id = "journey_div";
+    journeyDiv.classList.add("visible_div");
+    journeyDiv.addEventListener("click", ()=> {
+        journeyDiv.classList.add("active");
+        document.querySelector(".hidden").classList.remove("hidden");
+    })
+    
+    const journeyTitle = document.createElement('h2');
+    journeyTitle.textContent = "Our Journey";
 
-/***/ }),
-/* 68 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    journeyDiv.appendChild(journeyTitle);
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "videos/drawinggirl.mp4");
+    return journeyDiv;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (journey);
 
 /***/ })
 /******/ 	]);

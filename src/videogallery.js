@@ -10,7 +10,12 @@ const videogallery = () => {
 
     const vidGalleryDiv = document.createElement('div');
     vidGalleryDiv.id = "vid_gallery";
-
+    vidGalleryDiv.classList.add("visible_div");
+    vidGalleryDiv.addEventListener("click", ()=>{
+        vidGalleryDiv.classList.add("active");
+        document.querySelector(".hidden").classList.remove("hidden");
+    })
+    
     const galleryTitle = document.createElement('h2');
     galleryTitle.textContent = "Video Gallery";
 
@@ -84,9 +89,9 @@ const videogallery = () => {
     rightButton.textContent = ">";
 
     buttonDiv.appendChild(rightButton);
-    
+
     vidGalleryDiv.appendChild(buttonDiv);
-    
+
     return vidGalleryDiv;
 }
 
