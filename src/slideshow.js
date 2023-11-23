@@ -16,7 +16,8 @@ class Slideshow {
         let i;
         let slides = document.getElementsByClassName(className);
         if (n >= slides.length) {this.slideIndex = 0}
-        if (n < 0) {this.slideIndex = slides.length-1}
+        else if (n < 0) {this.slideIndex = slides.length-1}
+        else {this.slideIndex = n}
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
