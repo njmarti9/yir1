@@ -4,8 +4,7 @@ const header = () => {
 
     const headerTitle = document.createElement('h1');
     headerTitle.id = "header_title";
-    // headerTitle.textContent = "Year 1 in Review";
-    headerTitle.textContent = "In Progress"
+    headerTitle.textContent = "Year 1 in Review";
 
     headerDiv.appendChild(headerTitle);
 

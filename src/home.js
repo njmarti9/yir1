@@ -79,14 +79,16 @@ const home = () => {
     });
     
     let leftButt = document.getElementById('video_left_button');
-    leftButt.addEventListener("click", ()=>{
+    leftButt.addEventListener("click", (e)=>{
+        e.stopPropagation();
         let index = slideshow2.slideIndex + 1;
         eval('player' + index + '.pause();');
         slideshow2.showSlides(slideshow2.slideIndex - 1, "video_slides");
     })
 
     let rightButt = document.getElementById('video_right_button');
-    rightButt.addEventListener("click", ()=>{
+    rightButt.addEventListener("click", (e)=>{
+        e.stopPropagation();
         let index = slideshow2.slideIndex + 1;
         eval('player' + index + '.pause();');
         slideshow2.showSlides(slideshow2.slideIndex + 1, "video_slides");
